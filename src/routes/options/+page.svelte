@@ -8,7 +8,7 @@
         <h2 class="font-semibold text-sm" >Værelsesnummer 436.</h2>
         <a class="text-blue-700" href="/">Log ud</a>
     </div>
-    <form method="POST" action="?/gørIngeting">
+    <form method="POST" action="?/fjernGæst">
         <div class="flex justify-between w-full">
             <div class="font-sans">
                 <button formaction="?/indsendTilmelding" class="bg-blue-600 text-white pl-2 pr-2 rounded-xl h-max w-max text-xs font-semibold">Gem</button>
@@ -16,11 +16,11 @@
             </div>
             <div class="flex gap-1">
                 <label for="ikkeTilstede">Ikke tilstede i weekenden</label>
-                <input type="radio" id="ikkeTilstede" name="erTilstede" value="HTML" />
+                <input type="radio" id="ikkeTilstede" name="erTilstede" value={false} />
             </div>
             <div class="flex gap-1">
                 <label for="tilstede">Tilstede i weekenden</label>
-                <input type="radio" id="tilstede" name="erTilstede" value="HTML" />
+                <input type="radio" id="tilstede" name="erTilstede" value={true} />
             </div>
         </div>
 
