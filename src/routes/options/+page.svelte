@@ -42,20 +42,20 @@
         <div class="col-span-1 text-center gridItemColor gridItemBorder">Søn <strong class="font-semibold font-sm">Af</strong></div>
         <div class="col-span-1 text-center gridItemColor gridItemBorder">Søn Ka</div>
         <!-- Radio buttons and input fields -->
-        <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="name"></div>
-        <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="roomNumber"></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="FreAf"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="FreKa"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="LørMo"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="LørMi"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="LørEf"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="LørAf"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="LørKa"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="SønMo"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="SønMi"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="SønEf"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="SønAf"></div></div>
-        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="SønKa"></div></div>
+        <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="name" placeholder="Skriv dit navn"></div>
+        <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="roomNumber" placeholder="Skriv dit værelse nr."></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="FreAf"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="FreKa"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="LørMo"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="LørMi"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="LørEf"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="LørAf"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="LørKa"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="SønMo"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="SønMi"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="SønEf"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="SønAf"></div></div>
+        <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="SønKa"></div></div>
         <!-- Last row -->
         <div class="col-span-4 text-center gridItemColor gridItemBorder">Gæsters navne:</div>
         <div class="col-span-12"></div>
