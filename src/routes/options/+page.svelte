@@ -63,16 +63,28 @@
     <!-- Guests and comments section -->
     <div class="w-full flex justify-between mt-7">
         <!-- Comments -->
-        <div class="flex flex-col h-max w-5/12">
+        <div class="flex flex-col h-56 w-5/12">
             <p>Kommentarer:</p>
-            <div class="flex justify-between">
+            <div class="flex justify-between h-full">
                 <p>Besked:</p>
-                <textarea name="comment" class="w-72 h-32 border-2 border-gray-300 rounded"></textarea>
+                <textarea name="comment" class="w-72 h-full border-2 border-gray-300 rounded"></textarea>
             </div>
         </div>
         <!-- Guests -->
-        <div class="flex flex-col h-max w-5/12">
+        <div class="flex flex-col h-56 w-5/12">
             <p>Gæster:</p>
+            <div class="flex justify-between">
+                <p>Gæstens navn:</p>
+                <input type="text" name="guestName" placeholder="Hans Hansen" class="border-2 border-gray-300 rounded w-9/12">
+            </div>
+            <div class="flex justify-between">
+                <p>Værelses nr.:</p>
+                <input type="text" name="guestRoom" placeholder="123" class="border-2 border-gray-300 rounded w-9/12">
+            </div>
+            <div class="flex justify-between h-full">
+                <p>Besked:</p>
+                <textarea name="guestMessage" placeholder="Skriv hvilke dage gæsten overnatter" class="border-2 border-gray-300 rounded w-9/12"> </textarea>
+            </div>
         </div>
     </div>
 </div>
