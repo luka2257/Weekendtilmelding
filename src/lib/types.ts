@@ -23,3 +23,10 @@ export interface Weekendtilmelding {
         besked: string
     }
 }
+
+
+export interface Bruger {
+    navn: string,
+    room: string,
+    adganskode: string
+}

@@ -1,4 +1,4 @@
-import { testStore } from '$lib/stores.js';
+import { testStore } from '$lib/server/stores.js';
 
 let testStoreValue: string = "";
 
