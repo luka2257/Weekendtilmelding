@@ -2,11 +2,8 @@
 
 export const actions = {
     indsendTilmelding: async ({ request }) => {
-        const data = request.formData();
-        console.log(data);
+        const data = await request.formData();
+        console.log("Guest message: " + data.get("guestMessage"));
     },
-    gørIngeting: async ({ request }) => {
-        const data = request.formData();
-        console.log("Gør ingenting: " + data);
-    }
+    gørIngeting: async ({ request }) => {}
 }

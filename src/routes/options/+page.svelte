@@ -85,7 +85,7 @@
                 </div>
                 <div class="flex justify-between h-full">
                     <p>Besked:</p>
-                    <textarea name="guestMessage" placeholder="Skriv hvilke dage gæsten overnatter" class="border-2 border-gray-300 rounded w-9/12"> </textarea>
+                    <textarea name="guestMessage" placeholder="Skriv hvilke dage gæsten overnatter" class="border-2 border-gray-300 rounded w-9/12"></textarea>
                 </div>
             </div>
         </div>
