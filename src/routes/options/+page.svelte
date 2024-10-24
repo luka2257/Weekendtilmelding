@@ -1,16 +1,16 @@
 <!-- Padding to give a percentage distance from the top -->
 <div class="h-1/6"></div>
 <!-- Content -->
-<div class="flex items-center flex-col w-1/2">
+<div class="flex items-center flex-col wrapper-width">
     <div class="flex gap-2 mb-7">
         <h2 class="font-semibold text-sm" >Værelsesnummer 436.</h2>
-        <a class="text-blue-700" href="www.google.com">Log ud</a>
+        <a class="text-blue-700" href="/">Log ud</a>
     </div>
 
     <div class="flex justify-between w-full">
         <div class="font-sans">
-            <button class="bg-blue-500 text-white pl-2 pr-2 rounded-xl h-max w-max text-xs font-semibold">Gem</button>
-            <button class="bg-blue-500 text-white pl-2 pr-2 rounded-xl h-max w-max text-xs font-semibold">Fjern gæst</button>
+            <button class="bg-blue-600 text-white pl-2 pr-2 rounded-xl h-max w-max text-xs font-semibold">Gem</button>
+            <button class="bg-blue-600 text-white pl-2 pr-2 rounded-xl h-max w-max text-xs font-semibold">Fjern gæst</button>
         </div>
         <div class="flex gap-1">
             <label for="ikkeTilstede">Ikke tilstede i weekenden</label>
@@ -40,8 +40,8 @@
         <div class="col-span-1 text-center gridItemColor gridItemBorder">Søn <strong class="font-semibold font-sm">Af</strong></div>
         <div class="col-span-1 text-center gridItemColor gridItemBorder">Søn Ka</div>
         <!-- Radio buttons and input fields -->
-        <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text"></div>
-        <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text"></div>
+        <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="name"></div>
+        <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="roomNumber"></div>
         <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="FreAf"></div></div>
         <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="FreKa"></div></div>
         <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="radio" name="LørMo"></div></div>
@@ -59,10 +59,30 @@
         <div class="col-span-12"></div>
         <div class="col-span-4"></div>
     </div>
+
+    <!-- Guests and comments section -->
+    <div class="w-full flex justify-between mt-7">
+        <!-- Comments -->
+        <div class="flex flex-col h-max w-5/12">
+            <p>Kommentarer:</p>
+            <div class="flex justify-between">
+                <p>Besked:</p>
+                <textarea name="comment" class="w-72 h-32 border-2 border-gray-300 rounded"></textarea>
+            </div>
+        </div>
+        <!-- Guests -->
+        <div class="flex flex-col h-max w-5/12">
+            <p>Gæster:</p>
+        </div>
+    </div>
 </div>
 
 
 <style>
+    .wrapper-width {
+        width: 1000px;
+    }
+
     .grid-container {
         display: grid;
         grid-template-columns: repeat(20, 1fr); /* Creates 16 equal-width columns */
