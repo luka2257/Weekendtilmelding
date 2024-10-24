@@ -16,11 +16,11 @@
             </div>
             <div class="flex gap-1">
                 <label for="ikkeTilstede">Ikke tilstede i weekenden</label>
-                <input type="radio" id="ikkeTilstede" name="ikkeTilstede" value="HTML" />
+                <input type="radio" id="ikkeTilstede" name="erTilstede" value="HTML" />
             </div>
             <div class="flex gap-1">
                 <label for="tilstede">Tilstede i weekenden</label>
-                <input type="radio" id="tilstede" name="tilstede" value="HTML" />
+                <input type="radio" id="tilstede" name="erTilstede" value="HTML" />
             </div>
         </div>
 
