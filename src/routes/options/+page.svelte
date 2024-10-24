@@ -1,5 +1,7 @@
 <!-- Padding to give a percentage distance from the top -->
-<div class="h-1/6"></div>
+<div class="h-14"></div>
+<!-- Horizontal line above content -->
+<div class="w-11/12 border-t border-gray-400 mt-2 mb-6"></div>
 <!-- Content -->
 <div class="flex items-center flex-col wrapper-width">
     <div class="flex gap-2 mb-7">
@@ -88,6 +90,8 @@
         </div>
     </div>
 </div>
+<!-- Horizontal line below content -->
+<div class="w-11/12 border-t border-gray-400 mt-6"></div>
 
 
 <style>
