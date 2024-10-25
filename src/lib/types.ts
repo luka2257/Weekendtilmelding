@@ -22,6 +22,7 @@ export interface Weekendtilmelding {
         værelse: string,
         besked: string
     }
+    date: Date
 }
 
 

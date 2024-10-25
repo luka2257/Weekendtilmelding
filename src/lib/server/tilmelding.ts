@@ -11,6 +11,10 @@ export function validateSubmission(data: FormData): boolean {
     return true;
 }
 
+export function checkIfUserAlreadySubmitted() {
+
+}
+
 export function createAndAddWeekendTilmeldingToStore(data: FormData) {
   const weekendtilmelding = createWeekendtilmelding(data);
   addWeekendtilmeldingToStore(weekendtilmelding);
@@ -41,6 +45,7 @@ export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
         værelse: String(data.get("guestRoom")),
         besked: String(data.get("guestMessage")),
       },
+      date: new Date()
     };
     console.log("Registreret tilmelding:")
     console.log(tilmelding);
