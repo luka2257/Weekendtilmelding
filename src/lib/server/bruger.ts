@@ -24,3 +24,7 @@ export function getUser(værelse: string): Bruger | null {
     });
     return result;
 }
+
+export function getAllUsers() {
+    return brugerStoreValue;
+}

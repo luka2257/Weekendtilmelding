@@ -88,4 +88,8 @@ export function updateWeekendtilmeldingFromStore(newWeekendtilmelding: Weekendti
   removeWeekentilmeldingFromStore(newWeekendtilmelding.værelse);
   addWeekendtilmeldingToStore(newWeekendtilmelding);
 }
+
+export function getAllWeekentilmeldinger() {
+  return tilmeldingerStoreStoreValue;
+}
 //#endregion
