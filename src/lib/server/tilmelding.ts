@@ -76,4 +76,8 @@ export function createAndAddWeekendTilmeldingToStore(data: FormData) {
 export function addWeekendtilmeldingToStore(weekendtilmelding: Weekendtilmelding) {
   tilmeldingerStore.update(items => [...items, weekendtilmelding]);
 }
+
+export function removeWeekentilmeldingFromStore(værelse: string) {
+  tilmeldingerStore.update(items => items.filter(item => item.værelse !== værelse));
+}
 //#endregion
