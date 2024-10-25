@@ -27,6 +27,6 @@ export interface Weekendtilmelding {
 
 export interface Bruger {
     navn: string,
-    room: string,
-    adganskode: string
+    værelse: string,
+    adgangskode: string
 }
