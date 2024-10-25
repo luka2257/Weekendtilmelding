@@ -1,4 +1,5 @@
 import type { Weekendtilmelding } from "$lib/types";
+import { tilmeldingerStore } from "./stores";
 
 export function validateSubmission(data: FormData): boolean {
     const navn = data.get("navn");
@@ -10,7 +11,12 @@ export function validateSubmission(data: FormData): boolean {
     return true;
 }
 
-export function createWeekendtilmelding(data: FormData) {
+export function createAndAddWeekendTilmeldingToStore(data: FormData) {
+  const weekendtilmelding = createWeekendtilmelding(data);
+  addWeekendtilmeldingToStore(weekendtilmelding);
+}
+
+export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
     const tilmelding: Weekendtilmelding = {
       navn: String(data.get("navn")),
       værelse: String(data.get("værelse")),
@@ -38,4 +44,9 @@ export function createWeekendtilmelding(data: FormData) {
     };
     console.log("Registreret tilmelding:")
     console.log(tilmelding);
+    return tilmelding;
+}
+
+export function addWeekendtilmeldingToStore(weekendtilmelding: Weekendtilmelding) {
+  tilmeldingerStore.update(items => [...items, weekendtilmelding]);
 }
