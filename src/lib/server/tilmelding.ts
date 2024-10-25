@@ -72,8 +72,9 @@ export function createAndAddWeekendTilmeldingToStore(data: FormData) {
   const weekendtilmelding = createWeekendtilmelding(data);
   if (checkIfUserHasSubmission(weekendtilmelding)) {
     updateWeekendtilmeldingFromStore(weekendtilmelding);
+  } else {
+    addWeekendtilmeldingToStore(weekendtilmelding);
   }
-  addWeekendtilmeldingToStore(weekendtilmelding);
 }
 
 export function addWeekendtilmeldingToStore(weekendtilmelding: Weekendtilmelding) {

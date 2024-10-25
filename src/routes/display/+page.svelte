@@ -7,5 +7,7 @@
 {/each}
 <h1 class="mt-20">Tilmeldinger</h1>
 {#each data.tilmeldinger as tilmelding}
+<div class="mb-5">
     {JSON.stringify(tilmelding)}
+</div>
 {/each}
