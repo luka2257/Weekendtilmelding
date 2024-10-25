@@ -1,6 +1,15 @@
 import type { Weekendtilmelding } from "$lib/types";
 import { tilmeldingerStore } from "./stores";
 
+//#region Store and subscriptions
+let tilmeldingerStoreStoreValue: Weekendtilmelding[] = [];
+tilmeldingerStore.subscribe((value: Weekendtilmelding[]) => {
+  tilmeldingerStoreStoreValue = value;
+});
+//#endregion
+
+
+//#region validation methods
 export function validateSubmission(data: FormData): boolean {
     const navn = data.get("navn");
     const værelse = data.get("værelse");
@@ -11,15 +20,19 @@ export function validateSubmission(data: FormData): boolean {
     return true;
 }
 
-export function checkIfUserAlreadySubmitted() {
-
+export function checkIfUserHasSubmission(weekendtilmelding: Weekendtilmelding) {
+  let result: boolean = false;
+  tilmeldingerStoreStoreValue.forEach((tilmelding: Weekendtilmelding) => {
+    if (weekendtilmelding.værelse === tilmelding.værelse) {
+      result = true;
+    }
+  });
+  return result;
 }
+//#endregion
 
-export function createAndAddWeekendTilmeldingToStore(data: FormData) {
-  const weekendtilmelding = createWeekendtilmelding(data);
-  addWeekendtilmeldingToStore(weekendtilmelding);
-}
 
+//#region Manipulate weekendtilmelding
 export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
     const tilmelding: Weekendtilmelding = {
       navn: String(data.get("navn")),
@@ -51,7 +64,16 @@ export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
     console.log(tilmelding);
     return tilmelding;
 }
+//#endregion
+
+
+//#region manipulate weekendtilmelding store
+export function createAndAddWeekendTilmeldingToStore(data: FormData) {
+  const weekendtilmelding = createWeekendtilmelding(data);
+  addWeekendtilmeldingToStore(weekendtilmelding);
+}
 
 export function addWeekendtilmeldingToStore(weekendtilmelding: Weekendtilmelding) {
   tilmeldingerStore.update(items => [...items, weekendtilmelding]);
 }
+//#endregion
