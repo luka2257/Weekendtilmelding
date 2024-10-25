@@ -80,4 +80,9 @@ export function addWeekendtilmeldingToStore(weekendtilmelding: Weekendtilmelding
 export function removeWeekentilmeldingFromStore(værelse: string) {
   tilmeldingerStore.update(items => items.filter(item => item.værelse !== værelse));
 }
+
+export function updateWeekendtilmeldingFromStore(newWeekendtilmelding: Weekendtilmelding) {
+  removeWeekentilmeldingFromStore(newWeekendtilmelding.værelse);
+  addWeekendtilmeldingToStore(newWeekendtilmelding);
+}
 //#endregion
