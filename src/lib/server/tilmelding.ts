@@ -70,6 +70,9 @@ export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
 //#region manipulate weekendtilmelding store
 export function createAndAddWeekendTilmeldingToStore(data: FormData) {
   const weekendtilmelding = createWeekendtilmelding(data);
+  if (checkIfUserHasSubmission(weekendtilmelding)) {
+    updateWeekendtilmeldingFromStore(weekendtilmelding);
+  }
   addWeekendtilmeldingToStore(weekendtilmelding);
 }
 
