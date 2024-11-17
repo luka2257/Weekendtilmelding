@@ -1,12 +1,15 @@
-import { testStore } from "$lib/server/stores.js";
+import { loggedInUser } from "$lib/server/stores.js";
 import { createAndAddWeekendTilmeldingToStore, createWeekendtilmelding, validateSubmission } from "$lib/server/tilmelding";
-import type { Weekendtilmelding } from "$lib/types.js";
+import { get } from "svelte/store";
+import type { PageServerLoad } from "./$types";
 
-let testStoreValue: string = "";
+export const load: PageServerLoad = ({ params }) => {
+  const currentUser = get(loggedInUser)!; // Read the current value of the store
+	return {
+		currentUser
+	};
+};
 
-testStore.subscribe((value: string) => {
-  testStoreValue = value;
-});
 
 export const actions = {
   indsendTilmelding: async ({ request }) => {
