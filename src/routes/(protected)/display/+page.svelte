@@ -1,6 +1,8 @@
 <script lang="ts">
     export let data;
 </script>
+
+
 <h1>Brugere</h1>
 {#each data.brugere as bruger}
     <div>{bruger.navn}, {bruger.værelse}, {bruger.adgangskode}</div>

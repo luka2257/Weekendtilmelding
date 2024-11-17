@@ -23,11 +23,8 @@ export const actions = {
           responseMessage: "Huske at udfylde både navn, værelse og om du er tilstede" 
         }
     } else {
-      createAndAddWeekendTilmeldingToStore(data);
-      return {
-        success: true,
-        resposneMessage: "Der var både navn, værelse og tilstede. Weekendtilmelding tilføjet til store"
-      }
+      await createAndAddWeekendTilmeldingToStore(data);
+      throw redirect(303, '/tilmeld');
     }
   },
   fjernGæst: async ({ request }) => {},
