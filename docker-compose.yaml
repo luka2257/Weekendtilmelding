@@ -1,20 +1,21 @@
 version: "3"
 
 services: 
-  WeekendtilmeldingWeb:
+  weekendtilmelding_web:
     container_name: weekendtilmeldingContainer
-    image: wekkendtilmeldingImage:latest
-    restart: unless-stopped
+    # image: wekkendtilmeldingimage:latest
+    restart: 'unless-stopped'
+    build: .
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@TilmeldingStorage:5432/${POSTGRES_DB}
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@tilmelding_storage:5432/${POSTGRES_DB}
     ports: 
-      - "5111:5111"
+      - "3030:3000"
     depends_on:
-      - TilmeldingStorage
+      - tilmelding_storage
 
-  TilmeldingStorage:
+  tilmelding_storage:
     image: postgres:15.4
     restart: always
     env_file:
