@@ -41,7 +41,7 @@ export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
     const tilmelding: Weekendtilmelding = {
       navn: String(data.get("navn")),
       værelse: String(data.get("værelse")),
-      erTilstede: Boolean(data.get("erTilstede")),
+      erTilstede: data.get("erTilstede") === "true" || false, // Default to false
       meals: {
         FreAf: Boolean(data.get("FreAf")),
         FreKa: Boolean(data.get("FreKa")),
