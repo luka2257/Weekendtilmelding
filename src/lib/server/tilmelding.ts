@@ -1,4 +1,8 @@
 import type { Weekendtilmelding } from "$lib/types";
+import { json } from "@sveltejs/kit";
+import { db, insertTilmelding } from "./db/db";
+import type { InsertTilmelding } from "./db/dbTypes";
+import { Tilmeldinger } from "./db/schema";
 import { tilmeldingerStore } from "./stores";
 
 //#region Store and subscriptions
@@ -69,8 +73,9 @@ export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
 
 //#region manipulate weekendtilmelding store
 export function createAndAddWeekendTilmeldingToStore(data: FormData) {
-  const weekendtilmelding = createWeekendtilmelding(data);
+  const weekendtilmelding: Weekendtilmelding = createWeekendtilmelding(data);
   if (checkIfUserHasSubmission(weekendtilmelding)) {
+    insertTilmelding(weekendtilmelding);
     updateWeekendtilmeldingFromStore(weekendtilmelding);
   } else {
     addWeekendtilmeldingToStore(weekendtilmelding);

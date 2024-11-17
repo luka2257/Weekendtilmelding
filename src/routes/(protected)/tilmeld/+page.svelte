@@ -56,8 +56,8 @@
             <div class="col-span-1 text-center gridItemColor gridItemBorder">Søn <strong class="font-semibold font-sm">Af</strong></div>
             <div class="col-span-1 text-center gridItemColor gridItemBorder">Søn Ka</div>
             <!-- Radio buttons and input fields -->
-            <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="navn" value={data.currentUser.navn} disabled></div>
-            <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="værelse" value={data.currentUser.værelse} disabled></div>
+            <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="navn" value={data.currentUser.navn} readonly={true} ></div>
+            <div class="col-span-4 text-center"><input class="w-full gridItemBorder" type="text" name="værelse" value={data.currentUser.værelse} readonly={true}></div>
             <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="FreAf"></div></div>
             <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="FreKa"></div></div>
             <div class="col-span-1 text-center"><div class="w-full gridItemBorder"><input type="checkbox" name="LørMo"></div></div>

@@ -4,7 +4,9 @@ import * as schema from "./schema";
 import { POSTGRES_URL } from "$env/static/private";
 import { Rum } from "./schema";
 import { eq, and } from 'drizzle-orm';
-import type { Bruger } from "$lib/types";
+import type { Bruger, Weekendtilmelding } from "$lib/types";
+import type { InsertTilmelding } from "./dbTypes";
+import { json } from "@sveltejs/kit";
 
 
 const queryClient = postgres(POSTGRES_URL);
@@ -27,4 +29,13 @@ export async function getUserByRoom(roomNr: string): Promise<Bruger> {
         adgangskode: dbResult.adganskode
     }
     return user;
+}
+
+export async function insertTilmelding(tilmelding: Weekendtilmelding) {
+    console.log("Inserting into db, got result:");
+    const newRow: InsertTilmelding = {
+      værelsesnummer: tilmelding.værelse,
+      tilmelding: tilmelding
+    }
+    console.log(await db.insert(schema.Tilmeldinger).values(newRow).returning());
 }
