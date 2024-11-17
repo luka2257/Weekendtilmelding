@@ -18,7 +18,9 @@
 <div class="flex items-center flex-col wrapper-width">
     <div class="flex gap-2 mb-7">
         <h2 class="font-semibold text-sm" >Værelsesnummer 436.</h2>
-        <a class="text-blue-700" href="/">Log ud</a>
+        <form method="POST">
+            <button class="text-blue-700" formaction="?/logout">Log ud</button>
+        </form>
     </div>
     <form method="POST" action="?/fjernGæst">
         <div class="flex justify-between w-full">

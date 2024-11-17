@@ -2,6 +2,7 @@ import { loggedInUser } from "$lib/server/stores.js";
 import { createAndAddWeekendTilmeldingToStore, createWeekendtilmelding, validateSubmission } from "$lib/server/tilmelding";
 import { get } from "svelte/store";
 import type { PageServerLoad } from "./$types";
+import { redirect } from "@sveltejs/kit";
 
 export const load: PageServerLoad = ({ params }) => {
   const currentUser = get(loggedInUser)!; // Read the current value of the store
@@ -30,4 +31,8 @@ export const actions = {
     }
   },
   fjernGæst: async ({ request }) => {},
+  logout: async({ request }) => {
+    loggedInUser.set(null);
+    throw redirect(303, '/');
+  }
 };
