@@ -1,0 +1,32 @@
+version: "3"
+
+services: 
+  WeekendtilmeldingWeb:
+    container_name: weekendtilmeldingContainer
+    image: wekkendtilmeldingImage:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@TilmeldingStorage:5432/${POSTGRES_DB}
+    ports: 
+      - "5111:5111"
+    depends_on:
+      - TilmeldingStorage
+
+  TilmeldingStorage:
+    image: postgres:15.4
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${DB_SERVER_PORT}:5432"
+    volumes:
+      - WeekendtilmeldingVolume:/var/lib/postgresql/data
+
+volumes:
+  WeekendtilmeldingVolume:
