@@ -1,6 +1,6 @@
 import { getAllUsers } from "$lib/server/bruger";
 import { getAllWeekentilmeldinger } from "$lib/server/tilmelding";
-import type { PageServerLoad } from "../$types";
+import type { PageServerLoad } from "../../$types";
 
 export const load: PageServerLoad = ({ params }) => {
 	return {

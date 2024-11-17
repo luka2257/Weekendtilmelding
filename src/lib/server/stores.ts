@@ -3,7 +3,7 @@ import type { Bruger, Weekendtilmelding } from "../types";
 
 export const tilmeldingerStore: Writable<Weekendtilmelding[]> = writable([]);
 
-export const isLoggedIn: Writable<boolean> = writable(false);
+export const loggedInUser: Writable<Bruger | null> = writable(null);
 
 
 export const brugereStore: Writable<Bruger[]> = writable([

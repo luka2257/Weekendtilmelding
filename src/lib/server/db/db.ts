@@ -4,6 +4,7 @@ import * as schema from "./schema";
 import { POSTGRES_URL } from "$env/static/private";
 import { Rum } from "./schema";
 import { eq, and } from 'drizzle-orm';
+import type { Bruger } from "$lib/types";
 
 
 const queryClient = postgres(POSTGRES_URL);
@@ -16,4 +17,14 @@ export async function doesRoomExist(roomNr: string, password: string): Promise<b
     } else {
         return false;
     }
+}
+
+export async function getUserByRoom(roomNr: string): Promise<Bruger> {
+    const dbResult = (await db.select().from(Rum).where(eq(Rum.værelsesnummer, roomNr)))[0];
+    const user: Bruger = {
+        navn: dbResult.personNavn,
+        værelse: dbResult.værelsesnummer,
+        adgangskode: dbResult.adganskode
+    }
+    return user;
 }
