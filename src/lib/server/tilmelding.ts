@@ -1,6 +1,6 @@
 import type { Weekendtilmelding } from "$lib/types";
 import { json } from "@sveltejs/kit";
-import { db, insertTilmelding } from "./db/db";
+import { checkIfRoomHasSubmission, db, insertTilmelding, updateTilmelding } from "./db/db";
 import type { InsertTilmelding } from "./db/dbTypes";
 import { Tilmeldinger } from "./db/schema";
 import { tilmeldingerStore } from "./stores";
@@ -72,27 +72,13 @@ export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
 
 
 //#region manipulate weekendtilmelding store
-export function createAndAddWeekendTilmeldingToStore(data: FormData) {
+export async function createAndAddWeekendTilmeldingToStore(data: FormData) {
   const weekendtilmelding: Weekendtilmelding = createWeekendtilmelding(data);
-  if (checkIfUserHasSubmission(weekendtilmelding)) {
-    insertTilmelding(weekendtilmelding);
-    updateWeekendtilmeldingFromStore(weekendtilmelding);
+  if (await checkIfRoomHasSubmission(weekendtilmelding.værelse)) {
+    updateTilmelding(weekendtilmelding);
   } else {
-    addWeekendtilmeldingToStore(weekendtilmelding);
+    insertTilmelding(weekendtilmelding);
   }
-}
-
-export function addWeekendtilmeldingToStore(weekendtilmelding: Weekendtilmelding) {
-  tilmeldingerStore.update(items => [...items, weekendtilmelding]);
-}
-
-export function removeWeekentilmeldingFromStore(værelse: string) {
-  tilmeldingerStore.update(items => items.filter(item => item.værelse !== værelse));
-}
-
-export function updateWeekendtilmeldingFromStore(newWeekendtilmelding: Weekendtilmelding) {
-  removeWeekentilmeldingFromStore(newWeekendtilmelding.værelse);
-  addWeekendtilmeldingToStore(newWeekendtilmelding);
 }
 
 export function getAllWeekentilmeldinger() {

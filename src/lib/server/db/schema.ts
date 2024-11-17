@@ -9,7 +9,7 @@ export const Rum = pgTable( "rooms", {
 
 export const Tilmeldinger = pgTable( "tilmelding", {
     værelsesnummer: varchar("værelsesnummer", { length: 255 }).primaryKey(),
-    tilmelding: jsonb().$type<Weekendtilmelding>()
+    tilmelding: jsonb().$type<Weekendtilmelding>().notNull()
 });
 
 // export const Tilmeldinger = pgTable( "tilmelding", {
