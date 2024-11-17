@@ -3,9 +3,8 @@ version: "3"
 services: 
   weekendtilmelding_web:
     container_name: weekendtilmeldingContainer
-    # image: wekkendtilmeldingimage:latest
+    image: weekendtilmeldingimage:latest
     restart: 'unless-stopped'
-    build: .
     env_file:
       - .env
     environment:
