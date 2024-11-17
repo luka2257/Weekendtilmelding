@@ -5,7 +5,7 @@ import { POSTGRES_URL } from "$env/static/private";
 import { Rum } from "./schema";
 import { eq, and } from 'drizzle-orm';
 import type { Bruger, Weekendtilmelding } from "$lib/types";
-import type { InsertTilmelding } from "./dbTypes";
+import type { InsertTilmelding, SelectTilmelding } from "./dbTypes";
 import { json } from "@sveltejs/kit";
 
 
@@ -55,4 +55,12 @@ export async function updateTilmelding(weekendtilmelding: Weekendtilmelding) {
 
 export async function checkIfRoomHasSubmission(roomNr: string) {
     return (await db.select().from(schema.Tilmeldinger).where(eq(schema.Tilmeldinger.værelsesnummer, roomNr))).length > 0;
+}
+
+export async function getAllTilmeldinger(): Promise<Weekendtilmelding[]> {
+    const allRows: SelectTilmelding[] = await db.select().from(schema.Tilmeldinger);
+    const alleTilmeldinger: Weekendtilmelding[] = allRows.map(row => {
+        return row.tilmelding
+    });
+    return alleTilmeldinger;
 }

@@ -1,16 +1,5 @@
 import type { Weekendtilmelding } from "$lib/types";
-import { json } from "@sveltejs/kit";
 import { checkIfRoomHasSubmission, db, insertTilmelding, updateTilmelding } from "./db/db";
-import type { InsertTilmelding } from "./db/dbTypes";
-import { Tilmeldinger } from "./db/schema";
-import { tilmeldingerStore } from "./stores";
-
-//#region Store and subscriptions
-let tilmeldingerStoreStoreValue: Weekendtilmelding[] = [];
-tilmeldingerStore.subscribe((value: Weekendtilmelding[]) => {
-  tilmeldingerStoreStoreValue = value;
-});
-//#endregion
 
 
 //#region validation methods
@@ -22,16 +11,6 @@ export function validateSubmission(data: FormData): boolean {
         return false;
     }
     return true;
-}
-
-export function checkIfUserHasSubmission(weekendtilmelding: Weekendtilmelding) {
-  let result: boolean = false;
-  tilmeldingerStoreStoreValue.forEach((tilmelding: Weekendtilmelding) => {
-    if (weekendtilmelding.værelse === tilmelding.værelse) {
-      result = true;
-    }
-  });
-  return result;
 }
 //#endregion
 
@@ -79,9 +58,5 @@ export async function createAndAddWeekendTilmeldingToStore(data: FormData) {
   } else {
     insertTilmelding(weekendtilmelding);
   }
-}
-
-export function getAllWeekentilmeldinger() {
-  return tilmeldingerStoreStoreValue;
 }
 //#endregion

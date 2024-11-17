@@ -11,8 +11,3 @@ export const Tilmeldinger = pgTable( "tilmelding", {
     værelsesnummer: varchar("værelsesnummer", { length: 255 }).primaryKey(),
     tilmelding: jsonb().$type<Weekendtilmelding>().notNull()
 });
-
-// export const Tilmeldinger = pgTable( "tilmelding", {
-//     værelsesnummer: varchar("værelsesnummer", { length: 255 }).primaryKey(),
-//     tilmelding: varchar("tilmelding", { length: 3000 }).notNull()
-// });

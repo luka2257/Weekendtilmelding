@@ -6,8 +6,12 @@
     <div>{bruger.navn}, {bruger.værelse}, {bruger.adgangskode}</div>
 {/each}
 <h1 class="mt-20">Tilmeldinger</h1>
-{#each data.tilmeldinger as tilmelding}
-<div class="mb-5">
-    {JSON.stringify(tilmelding)}
-</div>
-{/each}
+{#await data.tilmeldinger}
+    Henter tilmeldinger
+{:then tilmeldinger}     
+    {#each tilmeldinger as tilmelding}
+    <div class="mb-5">
+        {JSON.stringify(tilmelding)}
+    </div>
+    {/each}
+{/await}
