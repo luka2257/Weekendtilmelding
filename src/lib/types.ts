@@ -2,20 +2,7 @@ export interface Weekendtilmelding {
     navn: string,
     værelse: string,
     erTilstede: boolean,
-    meals: {
-        FreAf: boolean,
-        FreKa: boolean,
-        LørMo: boolean,
-        LørMi: boolean,
-        LørEf: boolean,
-        LørAf: boolean,
-        LørKa: boolean,
-        SønMo: boolean,
-        SønMi: boolean,
-        SønEf: boolean,
-        SønAf: boolean,
-        SønKa: boolean
-    },
+    meals: Meals,
     kommentar: string,
     gæst: {
         navn: string,
@@ -23,6 +10,21 @@ export interface Weekendtilmelding {
         besked: string
     }
     date: Date
+}
+
+export interface Meals {
+    FreAf: boolean,
+    FreKa: boolean,
+    LørMo: boolean,
+    LørMi: boolean,
+    LørAf: boolean,
+    LørKa: boolean,
+    SønMo: boolean,
+    SønMi: boolean,
+    SønEf: boolean,
+    SønAf: boolean,
+    SønKa: boolean
+    LørEf: boolean,
 }
 
 
