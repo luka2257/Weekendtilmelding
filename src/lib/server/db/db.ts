@@ -31,12 +31,11 @@ export async function getUserByRoom(roomNr: string): Promise<Bruger> {
 }
 
 export async function insertTilmelding(tilmelding: Weekendtilmelding) {
-    console.log("Inserting into db, got result:");
     const newRow: InsertTilmelding = {
       værelsesnummer: tilmelding.værelse,
       tilmelding: tilmelding
     }
-    console.log(await db.insert(schema.Tilmeldinger).values(newRow).returning());
+    await db.insert(schema.Tilmeldinger).values(newRow).returning();
 }
 
 export async function updateTilmelding(weekendtilmelding: Weekendtilmelding) {

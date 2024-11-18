@@ -4,7 +4,7 @@
 
     if (form) {
         if (!form.success) {
-            console.log(form.responseMessage);
+            form.responseMessage;
         }
     }
 </script>

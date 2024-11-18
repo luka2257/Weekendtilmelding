@@ -43,8 +43,6 @@ export function createWeekendtilmelding(data: FormData): Weekendtilmelding {
       },
       date: new Date()
     };
-    console.log("Registreret tilmelding:")
-    console.log(tilmelding);
     return tilmelding;
 }
 //#endregion
