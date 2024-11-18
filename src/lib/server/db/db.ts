@@ -6,7 +6,6 @@ import { Rum } from "./schema";
 import { eq, and } from 'drizzle-orm';
 import type { Bruger, Weekendtilmelding } from "$lib/types";
 import type { InsertTilmelding, SelectTilmelding } from "./dbTypes";
-import { json } from "@sveltejs/kit";
 
 
 const queryClient = postgres(POSTGRES_URL);
@@ -63,4 +62,9 @@ export async function getAllTilmeldinger(): Promise<Weekendtilmelding[]> {
         return row.tilmelding
     });
     return alleTilmeldinger;
+}
+
+
+export async function clearTilmeldinger() {
+    await db.delete(schema.Tilmeldinger);
 }
