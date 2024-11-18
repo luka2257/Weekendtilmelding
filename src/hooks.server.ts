@@ -8,7 +8,7 @@ import { clearTilmeldinger } from '$lib/server/db/db';
 // node-like cronjob for clearing cache.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const job = schedule.scheduleJob('0 5 * * MON', function () {
-	//Crontab for every 30th minutes
+	//Crontab for every monday at 05:00
     clearTilmeldinger();
 });
 
